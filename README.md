@@ -1,11 +1,13 @@
 # HNIKT-prosjektet
 
-Dette prosjektet demonstrerer et enkelt Python-oppsett for å hente og validere fødselsnummer (FNR) og bygge pasientdataobjekter basert på dem.
+Dette prosjektet demonstrerer et enkelt Python-oppsett for å hente og validere fødselsnummer (FNR) og pasientdataobjekter (json).
 
 Her har jeg valgt en løsning hvor jeg samler funksjonalitet i klasser. 
 Dette valget er tatt for å forsøke å samle lik funksjonalitet, og gjøre feilsøking enklere.
 
 Jeg har valgt en iterativ tilnærming, med i utgangspunktet enkle tester som gjør reelle kall på apiet. For å ha muligheten til å teste feil bruk og andre elementer innførte jeg pytest for å kunne bygge testene gradvis bedre etterhvert som nye momenter påtreffes.
+
+Litt morsom oppgave da eg var med på en publikasjon om, aldersverifikasjon på internet i 2008. Der var en av momentene å vise hvor enkelt det er å forfalske personnummer. Publikasjonen ser ut til å være vanskelig å finne, men den er omtalt [her](https://godejord.blogspot.com/2008/)
 
 ## Struktur
 
