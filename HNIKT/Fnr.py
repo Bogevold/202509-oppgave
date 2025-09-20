@@ -34,6 +34,8 @@ class Fnr:
     i3 = int(value[8])
     # K1 formel: k1 = 11 - ((3 × d1 + 7 × d2 + 6 × m1 + 1 × m2 + 8 × å1 + 9 × å2 + 4 × i1 + 5 × i2 + 2 × i3) mod 11)
     k1 = 11 - ((3 * d1 + 7 * d2 + 6 * m1 + 1 * m2 + 8 * å1 + 9 * å2 + 4 * i1 + 5 * i2 + 2 * i3) % 11)
+    # Setter k1 til 0 dersom en treffer spesialtilfellet 11
+    k1 = k1 if k1 != 11 else 0
     # K2 formel: k2 = 11 - ((5 × d1 + 4 × d2 + 3 × m1 + 2 × m2 + 7 × å1 + 6 × å2 + 5 × i1 + 4 × i2 + 3 × i3 + 2 × k1) mod 11).
     k2 = 11 - ((5 * d1 + 4 * d2 + 3 * m1 + 2 * m2 + 7 * å1 + 6 * å2 + 5 * i1 + 4 * i2 + 3 * i3 + 2 * k1) % 11)
     # Trenger ikke å kontrollere om kontrollsifrene bli 10 og 11 da de uansett ikke vil påvirke kontrollen
