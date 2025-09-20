@@ -4,12 +4,11 @@ import logging
 logger = logging.getLogger(__name__)
 
 class Fnr:
-  #def __init__(self):
-  #  self.value = value
-
   def get(self) -> str:
     url = "https://rekruttering.azurewebsites.net/generate/fnr"
+    # Flagg for å sikre å få gyldige nummer
     ok_fnr = False
+    # Repeterer til validering blir korrekt
     while not ok_fnr:
       svar = requests.get(url=url, timeout=4)
       if svar.status_code != 200:
@@ -43,14 +42,15 @@ class Fnr:
 
   def validate(self, value: str) -> bool:
     # Bruker feil telling for å få alle feil i loggen med en gang
+    # Logger kun til info da disse er forventede feil som håndteres
     feil = 0
     if not value.isdigit():
-      logger.warning(f"{value} - Feilet validering - Fødselsnummer må kun bestå av siffer (0-9).")
+      logger.info(f"{value} - Feilet validering - Fødselsnummer må kun bestå av siffer (0-9).")
       feil +=1
     if len(value) != 11:
-      logger.warning(f"{value} - Feilet validering - Fødselsnummer må være nøyaktig 11 siffer langt.")
+      logger.info(f"{value} - Feilet validering - Fødselsnummer må være nøyaktig 11 siffer langt.")
       feil +=1  
     if not self.modulus11Ok(value):
-      logger.warning(f"{value} - Feilet validering - Fødselsnummer passerer ikke modulus kontroll.")
+      logger.info(f"{value} - Feilet validering - Fødselsnummer passerer ikke modulus kontroll.")
       feil +=1
     return feil == 0

@@ -10,5 +10,6 @@ logging.basicConfig(
 )
 
 f = Fnr()
-fnr = f.get()
-print(f"Validert fnr fra api: {fnr}")
+for n in range(10):
+  fnr = f.get()
+  print(f"Validert fnr fra api: {fnr}")
