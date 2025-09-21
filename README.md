@@ -22,6 +22,8 @@ tests/
 hniktTool.py
 hentFnr.py
 hentPasient.py
+requirements_dev.txt
+requirements.txt
 ```
 
 - **Fnr**: Klasse som henter fødselsnummer fra API og validerer dem (siffer, lengde, modulus-11).
@@ -30,6 +32,20 @@ hentPasient.py
 - **hentFnr**: Enkelt integrasjons testskript for manuelle tester (10 iterasjoner)
 - **hentPasient**: Enkelt integrasjons testskript for manuelle tester (10 iterasjoner)
 - **test_hnikt**: Testoppsett via pytest for enhetstester.
+- **requirements_dev**: Avhengigheter for å kjøre pytest.
+- **requirements**: Avhengigheter for vanlig bruk.
+
+## Forutsetninger
+
+Utvikling og testing har foregått på Fedora 41 med python 3.13.
+Har forsøkt å bruke minst mulig pakker og biblioteker som ikke følger med i standard python installasjoner, men har lagt med avhengighetsfiler for å lette installasjon om nødvending.
+
+Alt i `requirements.txt` er normalt sett installert men ved feil kan dette installeres med:
+
+```bash
+pip install -r requirements_dev.txt
+```
+
 
 ## Bruk
 
@@ -60,9 +76,16 @@ Prosjektet bruker pythons standard logging-bibliotek.
 
 Tester kjøres med pytest.
 
-```
+```bash
 pip install -r requirements_dev.txt
 pytest -v # Må stå i prosjektkatalogen
+```
+
+Det er også 2 testskript som kjører mot integrasjonspunktene i 10 iterasjoner. 
+Tanken her er å kjøre ende-til-ende tester.
+
+```bash
+
 ```
 
 ## Forbedringer som kan vurderes
