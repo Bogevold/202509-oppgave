@@ -4,7 +4,6 @@ import logging
 import os
 import sys
 
-
 from HNIKT import Fnr
 from HNIKT import PasientData
 
@@ -48,10 +47,10 @@ def main():
   for i in range(args.antall):
     fnr = fnr_obj.get()
     print(f"\nIterasjon {i+1}:")
+    print(f"PNR: {fnr}") # PNR printes uansett og alene dersom modus er pnr
     if args.modus == "pasient":
       p = PasientData(fnr)
       print(p)
-    else:  # modus == "pnr"
-      print(f"PNR: {fnr}")
+      
 if __name__ == "__main__":
   main()

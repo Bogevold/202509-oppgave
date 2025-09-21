@@ -29,6 +29,7 @@ hentPasient.py
 - **hniktTool**: Kommandolinjeskript som benytter klassene over.
 - **hentFnr**: Enkelt integrasjons testskript for manuelle tester (10 iterasjoner)
 - **hentPasient**: Enkelt integrasjons testskript for manuelle tester (10 iterasjoner)
+- **test_hnikt**: Testoppsett via pytest for enhetstester.
 
 ## Bruk
 
@@ -70,3 +71,6 @@ pytest -v # Må stå i prosjektkatalogen
 - Bedre formatering av __str__ i PasientData for bruk i output
 - Bruk av feilkoder kun ved "kritiske" feil.
 - Utvide håndterbare feil for å generer minimalt med støy
+- Henting/validering av kjønn basert på pnr 
+- Henting av fødselsdato fra pnr, århundre basert på nummerseriene i individsifrene
+- Flagging av D-nummer (fødselsdag mellom 41 og 71)
