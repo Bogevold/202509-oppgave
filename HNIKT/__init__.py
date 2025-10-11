@@ -1,5 +1,5 @@
 from .Fnr import Fnr
-from .HelseData import HelseData
+from .PasientData import PasientData
 
-__all__ = ["Fnr", "HelseData"]
+__all__ = ["Fnr", "PasientData"]
 

@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / compiled files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Distribution / packaging
+.Python
+build/
+dist/
+eggs/
+*.egg-info
+.installed.cfg
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.coverage
+.tox/
+.pytest_cache/
+htmlcov/
+
+# Editors / IDEs
+.vscode/ # VS Code
+*.swo   # Vim swap files
+
+# Temporary files
+*.log
+*.tmp
