@@ -4,6 +4,7 @@ import logging
 import os
 import sys
 
+from HNIKT import ApiFnr
 from HNIKT import Fnr
 from HNIKT import PasientData
 
@@ -43,7 +44,15 @@ def main():
   parser.add_argument("modus", choices=["pasient", "pnr"], help="Velg modus: pasient eller pnr")
   parser.add_argument("-n", "--antall", type=int, default=1, help="Antall iterasjoner")
   args = parser.parse_args()
-  fnr_obj = Fnr()
+  fnr_api = ApiFnr();
+  
+  # Henter nye fnr inntil et gyldig returneres
+  while True:
+    fnr_obj = Fnr(fnr_api.get())
+    # Sjekker gyldighet og at typen kan være en pasient (Norske fødselsnumre og D-nummer)
+    if fnr_obj.gyldig and fnr_obj.type.id in ['N', 'D']:
+      break
+
   for i in range(args.antall):
     fnr = fnr_obj.get()
     print(f"\nIterasjon {i+1}:")

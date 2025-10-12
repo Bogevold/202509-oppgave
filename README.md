@@ -14,6 +14,7 @@ Litt morsom oppgave da eg var med på en publikasjon om, aldersverifikasjon på 
 ```bash
 HNIKT/
 ├── __init__.py
+├── apiFnr.py
 ├── Fnr.py
 ├── PasientData.py
 tests/
@@ -26,7 +27,7 @@ requirements_dev.txt
 requirements.txt
 ```
 
-- **Fnr**: Klasse som henter fødselsnummer fra API og validerer dem (siffer, lengde, modulus-11).
+- **Fnr**: Klasse som validerer Fnr (siffer, lengde, modulus-11), finner også andre metatadata om fnr (Fødselsdata, type, valideringsfeil).
 - **PasientData**: Klasse som bygger et pasientobjekt basert på ` FNR og tilbyr validering og pen utskrift.
 - **hniktTool**: Kommandolinjeskript som benytter klassene over.
 - **hentFnr**: Enkelt integrasjons testskript for manuelle tester (10 iterasjoner)
@@ -85,7 +86,8 @@ Det er også 2 testskript som kjører mot integrasjonspunktene i 10 iterasjoner.
 Tanken her er å kjøre ende-til-ende tester.
 
 ```bash
-
+./hentFnr.py
+./hentPasient.py
 ```
 
 ## Forbedringer som kan vurderes
@@ -94,6 +96,3 @@ Tanken her er å kjøre ende-til-ende tester.
 - Bedre formatering av __str__ i PasientData for bruk i output
 - Bruk av feilkoder kun ved "kritiske" feil.
 - Utvide håndterbare feil for å generer minimalt med støy
-- Henting/validering av kjønn basert på pnr 
-- Henting av fødselsdato fra pnr, århundre basert på nummerseriene i individsifrene
-- Flagging av D-nummer (fødselsdag mellom 41 og 71)

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import logging
 from HNIKT import Fnr
+from HNIKT import ApiFnr
 
 # Angir logformat og nivå
 logging.basicConfig(
@@ -9,7 +10,8 @@ logging.basicConfig(
   datefmt="%Y-%m-%d %H:%M:%S"  # valgfritt format
 )
 
-f = Fnr()
+
+f = ApiFnr()
 for n in range(10):
-  fnr = f.get()
-  print(f"Validert fnr fra api: {fnr}")
+  fnr = Fnr(f.get())
+  print(fnr)
