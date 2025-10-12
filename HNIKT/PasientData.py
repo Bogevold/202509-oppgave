@@ -10,9 +10,8 @@ logger = logging.getLogger(__name__)
 class PasientData:
   def __init__(self, fnr: str):
     self.fnr = fnr
-    self.fnrObj = Fnr()
-    # Dobbeltvalidering om Fnr.get brukes - men nødvendig ved manuelle kall
-    if not self.fnrObj.validate(fnr):
+    self.fnrObj = Fnr(fnr)
+    if not self.fnrObj.validate():
       msg = f"FNR: {fnr} - validerer ikke"
       # Logger ikke da validate allerede logger tilstrekkelig
       raise RuntimeError(msg)
